@@ -12,7 +12,7 @@
                     @Method('PATCH')
                     <div class="form-group">
                       <label for="Name">Name</label>
-                      <input type="text" class="form-control" id="Name" value={{$item->name}} name='name' placeholder="Enter Name">
+                      <input type="text" class="form-control" id="Name" value="{{$item->name}}" name='name' placeholder="Enter Name">
                     </div>
                     <div class="form-group">
                       <label for="description">Description</label>
