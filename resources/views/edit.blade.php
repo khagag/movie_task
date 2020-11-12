@@ -12,11 +12,11 @@
                     @Method('PATCH')
                     <div class="form-group">
                       <label for="Name">Name</label>
-                      <input type="text" class="form-control" id="Name" placeholder="Enter Movie Name">
+                      <input type="text" class="form-control" id="Name" value={{$item->name}} name='name' placeholder="Enter Name">
                     </div>
                     <div class="form-group">
                       <label for="description">Description</label>
-                      <textarea class="form-control" id="description" placeholder="Enter The Description"></textarea>
+                      <textarea class="form-control" id="description" name='description' placeholder="Enter The Description">{{$item->description}}</textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
