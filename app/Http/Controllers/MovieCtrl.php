@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Movie;
 
 class MovieCtrl extends Controller
 {
@@ -14,6 +15,8 @@ class MovieCtrl extends Controller
     public function index()
     {
         //
+        $movies = Movie::all();
+        return view('list',['list'=>$movies,'title'=>'movies']);
     }
 
     /**
