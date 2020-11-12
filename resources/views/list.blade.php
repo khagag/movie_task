@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">{{ $title }}</div>
+                <div class="card-header"><b>{{ ucfirst($title) }}</b></div>
 
                 <div class="card-body">
                   <table class="table table-striped">
@@ -24,8 +24,8 @@
                           <th scope="row">{{$loop->index}}</th>
                           <td>{{$item->name}}</td>
                           <td>{{$item->description}}</td>
-                          <td><a class='btn btn-primary' href={{ Route($title+'.edit',$item->id)}}>EDIT</a></td>
-                          <td><a class='btn btn-danger' href={{ Route($title+'.edit',$item->id)}}>EDIT</a></td>
+                          <td><a class='btn btn-primary' href={{ Route($title.'.edit',$item->id)}}>EDIT</a></td>
+                          <td><a class='btn btn-danger' href={{ Route($title.'.edit',$item->id)}}>EDIT</a></td>
                         </tr>
                       @endforeach
                     </tbody>
