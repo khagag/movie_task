@@ -58,7 +58,7 @@ class ShowCtrl extends Controller
            $Show->save();
            $request->session()->flash('status','Stored successfully.');
            error_log($Show->id);
-           return redirect(Route('shows.edit',['Show'=>$Show->id]));
+           return redirect(Route('shows.edit',['show'=>$Show->id]));
          }
          return redirect(Route('shows.create'))->with('status','Something went wrong please try again later.');
      }
