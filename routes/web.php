@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('/movies',App\Http\Controllers\MovieCtrl::class);
+Route::resource('/shows',App\Http\Controllers\ShowCtrl::class);
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
