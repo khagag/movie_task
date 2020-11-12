@@ -27,6 +27,7 @@ class MovieCtrl extends Controller
     public function create()
     {
         //
+        return view('create',['title'=>'movies']);
     }
 
     /**
