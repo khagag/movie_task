@@ -97,6 +97,15 @@ class MovieCtrl extends Controller
     public function update(Request $request, $id)
     {
         //
+        $movie = new Movie;
+        if ($request->name)
+          $movie->name = $request->name;
+        if($request->description)
+          $movie->description = $request->description;
+          $movie->save();
+          $request->session()->flash('status','Stored successfully.');
+          error_log($movie->id);
+          return redirect(Route('movies.edit',['movie'=>$movie->id]));
     }
 
     /**
@@ -105,8 +114,10 @@ class MovieCtrl extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Movie $movie)
     {
         //
+        $movie->delete();
+        // return redirect()->route('movies.index');
     }
 }
