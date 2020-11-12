@@ -38,8 +38,31 @@ class MovieCtrl extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //validate the data before storing it.
+        try {
+
+          $valid = $request->validate([
+            'name'=>'required',
+            'description'=>'required'
+          ]);
+        } catch (\Exception $e) {
+          error_log($e);
+          return redirect(Route('movies.create'))->with('status','Something went wrong please try again later.');
+        }
+
+        if ($valid) {
+          // In case the data is valid
+          $movie = new Movie;
+          $movie->name = $request->name;
+          $movie->description = $request->description;
+          $movie->save();
+          $request->session()->flash('status','Stored successfully.');
+          error_log($movie->id);
+          return redirect(Route('movies.edit',['movie'=>$movie->id]));
+        }
+        return redirect(Route('movies.create'))->with('status','Something went wrong please try again later.');
     }
+
 
     /**
      * Display the specified resource.
